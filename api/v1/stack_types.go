@@ -29,13 +29,19 @@ type StackSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of Stack. Edit stack_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	//Foo string `json:"foo,omitempty"`
+	Type                   string `json:"type,omitempty"`
+	NumOfControlPlaneNodes int    `json:"numOfControlPlaneNodes,omitempty"`
+	NumOfWorkerNodes       int    `json:"numOfWorkerNodes,omitempty"`
 }
 
 // StackStatus defines the observed state of Stack
 type StackStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+
+	AllControlPlaneNodesReady bool `json:"allControlPlaneNodesReady,omitempty"`
+	AllWorkerNodesReady       bool `json:"allWorkerNodesReady,omitempty"`
 }
 
 // +kubebuilder:object:root=true
